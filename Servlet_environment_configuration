@@ -1,0 +1,47 @@
+
+1)	Install Tomcat 6
+	-> sudo apt-get install tomcat6
+
+2)	Configure Tomcat 6 server
+
+cd /usr/share/tomcat6
+sudo ln -s /var/lib/tomcat6/conf conf
+sudo ln -s /etc/tomcat6/policy.d/03catalina.policy conf/catalina.policy
+sudo ln -s /var/log/tomcat6 log
+sudo chmod -R 777 /usr/share/tomcat6/conf
+
+3)	Add tomcat6 server to runtime environments
+	-> Window/Preferences/Server/Runtime Environments
+	-> Add/Apache Tomcat v6.0/ navigate /usr/share/tomcat6
+	-> Finish
+
+4)	Add servers tab
+	-> Window/Show view/Servers
+
+5)	Add tomcat6 server
+	-> Right click in servers window/new/server/tomcat6
+
+6)	If tomcat runs on startup, stop it in command line
+	-> sudo /etc/init.d/tomcat6 stop	
+
+7)	Download JDBC Connector-> mysql-connector-java.jar
+
+8) 	Place jar in /usr/share/tomcat6/lib
+
+9)	Install Eclipse IDE for Java EE Developers, or just
+	modify existing Eclipse
+
+10)	In Eclipse, install web tools
+	-> Help/Install new software/Work with(drop down)- select 
+	version(Kepler/Indigo/Juno)/Select Web,XML,Java EE(at bottom)/
+	Finish
+
+11)	Create a new dynamic web project
+	-> New/Project.../ Under Web - dynamic project
+	-> Next/Next/ Make sure generate web.xml is selected
+
+12)	Create servlet in dynamic project
+	-> Right click project/new servlet/name package and 		class	
+
+13)	Import or write project code
+	-> Web xml is automatically configured
