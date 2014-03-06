@@ -137,5 +137,98 @@ public class Test {
 		
 	}
 	
+	
+	public class Test {
+
+	@org.junit.Test
+	public void testCheckHIERIDs() {
+		assertTrue(BaseDataAndCellTableConfig.checkHIERIDs("4809532081614990000", "8226896360947470000", "1150444940909480000"));
+		
+		assertFalse(BaseDataAndCellTableConfig.checkHIERIDs("48095320816149900000", "8226896360947470000", "1150444940909480000"));
+		assertFalse(BaseDataAndCellTableConfig.checkHIERIDs("4809532081614990000", "82268963609474700000", "1150444940909480000"));
+		assertFalse(BaseDataAndCellTableConfig.checkHIERIDs("4809532081614990000", "8226896360947470000", "11504449409094800000"));
+		
+		assertFalse(BaseDataAndCellTableConfig.checkHIERIDs("48095320816149900000", "82268963609474700000", "1150444940909480000"));
+		assertFalse(BaseDataAndCellTableConfig.checkHIERIDs("4809532081614990000", "82268963609474700000", "11504449409094800000"));		
+		assertFalse(BaseDataAndCellTableConfig.checkHIERIDs("48095320816149900000", "8226896360947470000", "11504449409094800000"));
+		
+		assertFalse(BaseDataAndCellTableConfig.checkHIERIDs("480953208161499000000", "822689636094747000000", "11504449409094800000"));
+	
+	
+		assertFalse(BaseDataAndCellTableConfig.checkHIERIDs("480953208161499000u", "8226896360947470000", "1150444940909480000"));
+		assertFalse(BaseDataAndCellTableConfig.checkHIERIDs("4809532081614990000", "8226896360947p70000", "1150444940909480000"));
+		assertFalse(BaseDataAndCellTableConfig.checkHIERIDs("4809532081614990000", "8226896360947470000", "115044494090948m000"));
+		
+		assertFalse(BaseDataAndCellTableConfig.checkHIERIDs("480953208161k990000", "82268963n6094747000", "1150444940909480000"));
+		assertFalse(BaseDataAndCellTableConfig.checkHIERIDs("4809532081614990000", "82268963j6094747000", "11504449409y0948000"));		
+		assertFalse(BaseDataAndCellTableConfig.checkHIERIDs("48095320816149900000", "822689636i947470000", "115044494090948000b"));
+		
+		assertFalse(BaseDataAndCellTableConfig.checkHIERIDs("4809532t081614990000", "82r89636094747000000", "11q4449409094800000"));
+	
+	}
+	
+	@org.junit.Test
+	public void testCheckIMSI() {
+		assertTrue(BaseDataAndCellTableConfig.checkIMSI("240210000000013"));
+		assertFalse(BaseDataAndCellTableConfig.checkIMSI("24021000k000013"));
+		assertFalse(BaseDataAndCellTableConfig.checkIMSI("24021000000013"));
+		
+	}
+
+	@org.junit.Test
+	public void testCheckCellIdAndDuration() {
+		assertTrue(BaseDataAndCellTableConfig.checkCellIdAndDuration("4","1000"));
+		assertFalse(BaseDataAndCellTableConfig.checkCellIdAndDuration("p","1000"));
+		assertFalse(BaseDataAndCellTableConfig.checkCellIdAndDuration("4","100w"));
+		assertFalse(BaseDataAndCellTableConfig.checkCellIdAndDuration("r","100w"));
+		
+	}
+	
+	@org.junit.Test
+	public void testCheckMCCAndMNC() {
+		assertTrue(BaseDataAndCellTableConfig.checkMCCAndMNC("344","930"));
+		assertFalse(BaseDataAndCellTableConfig.checkMCCAndMNC("344","1000"));
+		assertFalse(BaseDataAndCellTableConfig.checkCellIdAndDuration("334","930"));
+		assertFalse(BaseDataAndCellTableConfig.checkCellIdAndDuration("334","1000"));
+		
+	}
+	
+	@org.junit.Test
+	public void testCheckTAC() {
+		assertTrue(BaseDataAndCellTableConfig.checkTAC("21060800"));
+		assertFalse(BaseDataAndCellTableConfig.checkTAC("24021000"));
+
+	}
+
+	@org.junit.Test
+	public void testCheckFailureClass() {
+		assertTrue(BaseDataAndCellTableConfig.checkFailureClass("1"));
+		assertFalse(BaseDataAndCellTableConfig.checkFailureClass("h"));
+		assertFalse(BaseDataAndCellTableConfig.checkFailureClass("9"));
+
+	}
+	
+	@org.junit.Test
+	public void testCheckEventIdAndCauseCode() {
+		assertTrue(BaseDataAndCellTableConfig.checkEventIdAndCauseCode("4097","0"));		
+
+		assertFalse(BaseDataAndCellTableConfig.checkEventIdAndCauseCode("4097","h"));
+		assertFalse(BaseDataAndCellTableConfig.checkEventIdAndCauseCode("40j7","0"));
+
+		assertFalse(BaseDataAndCellTableConfig.checkEventIdAndCauseCode("4097","17"));
+		assertFalse(BaseDataAndCellTableConfig.checkEventIdAndCauseCode("4096","1"));
+
+	}
+	
+	@org.junit.Test
+	public void testCheckEvenDateFormat() {
+		assertTrue(BaseDataAndCellTableConfig.checkDateFormat("11/01/2013 17:15"));
+		
+		assertFalse(BaseDataAndCellTableConfig.checkDateFormat("11/01/2015 17:15"));
+		assertFalse(BaseDataAndCellTableConfig.checkDateFormat("11/01/2015 25:15"));
+	
+	}
+	
+		
 
 }
